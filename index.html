@@ -2,9 +2,110 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Budaya Has majalengka</title>
+	<title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {	
+	var id = '#dialog';
+ 
+	//Get the screen height and width
+	var maskHeight = $(document).height();
+	var maskWidth = $(window).width();
+ 
+	//Set heigth and width to mask to fill up the whole screen
+	$('#mask').css({'width':maskWidth,'height':maskHeight});
+ 
+	//transition effect
+	$('#mask').fadeIn(500);	
+	$('#mask').fadeTo("slow",0.9);	
+ 
+	//Get the window height and width
+	var winH = $(window).height();
+	var winW = $(window).width();
+ 
+k	//Set the popup window to center
+	$(id).css('top',  winH/2-$(id).height()/2);
+	$(id).css('left', winW/2-$(id).width()/2);
+ 
+	//transition effect
+	$(id).fadeIn(2000); 	
+ 
+	//if close button is clicked
+	$('.window .close').click(function (e) {
+	//Cancel the link behavior
+	e.preventDefault();
+ 
+	$('#mask').hide();
+	$('.window').hide();
+	});
+ 
+	//if mask is clicked
+	$('#mask').click(function () {
+	$(this).hide();
+	$('.window').hide();
+	});
+ 
+	});
+</script>
+<style type="text/css">
+#mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  background-color: #000;
+  display: none;
+}
+ 
+#boxes .window {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 440px;
+  height: 200px;
+  display: none;
+  z-index: 9999;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+ 
+#boxes #dialog {
+  width: 900px;
+  height: 900px;
+  padding: 10px;
+  background-color: #ffffff;
+  font-family: 'Segoe UI Light', sans-serif;
+  font-size: 15pt;
+}
+ 
+#popupfoot {
+  font-size: 16pt;
+  position: absolute;
+  bottom: 0px;
+  width: 250px;
+  left: 250px;
+}
+</style>
 </head>
 <body>
-
+<div id="boxes">
+  <div id="dialog" class="window">
+    <center>
+        <br>
+      
+      <!-- <div class='fb-page' data-href='file.jpg' data-tabs='timeline' data-width='500' data-height='355' data-small-header='false' data-adapt-container-width='true' data-hide-cover='false' data-show-facepile='true'><blockquote cite='https://www.facebook.com/pehapemu/' class='fb-xfbml-parse-ignore'><a href='https://www.facebook.com/pehapemu/'>phpmu.com</a></blockquote></div> -->
+      <img src="file.jpg" width="800" height="800"><br>
+      <a class="waves-effect waves-blue btn-large">Button</a>
+    </center><br>
+    
+  </div>
+  <div id="mask"></div>
+</div>
 </body>
 </html>
